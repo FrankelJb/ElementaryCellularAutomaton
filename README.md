@@ -33,4 +33,3 @@ To install pygame
 To check that pygame installed type `import pygame` into the interactive shell. If nothing appears after you hit the Enter key, then you know Pygame has successfully been installed. If the error ImportError: No module named pygame appears, then try to install Pygame again (and make sure you typed import pygame correctly).
 
 If you have any problems please visit 'http://pygame.seul.org/install.html'
-
