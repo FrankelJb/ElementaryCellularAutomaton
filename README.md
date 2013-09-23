@@ -19,3 +19,18 @@ The output of this will be a grid of 'X's and ' 's printed to the standard outpu
 To run the unit tests, type ./CellularAutomatonTest from the root directory.
 
 
+<h2> Notes </h3>
+This script needs the pygame module to execute completely. If the module is not installed then only the grid of 'X's and ' 's will be produced.
+To install pygame
++ Linux
+..- Type: `sudo apt-get install python-pygame`
++ To install pygame on Windows:
+..- Visit http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi and download the installer
++ Mac OS
+..- Visit http://pygame.org/ftp/ and download the tar.gz or zip of the version of python that you have and run it
+
+
+To check that pygame installed type `import pygame` into the interactive shell. If nothing appears after you hit the Enter key, then you know Pygame has successfully been installed. If the error ImportError: No module named pygame appears, then try to install Pygame again (and make sure you typed import pygame correctly).
+
+If you have any problems please visit 'http://pygame.seul.org/install.html'
+
