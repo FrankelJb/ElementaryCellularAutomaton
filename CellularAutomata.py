@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 __author__ = 'jonathan'
 import argparse
+import re
 
 
 class CellularAutomata():
@@ -51,7 +52,7 @@ class CellularAutomata():
     #Create a dictionary where the key is the current cell and its 2 neighbours
     #and the value is a boolean given by the rule in binary.
     def buildRules(self, rule):
-        rule = str("{0:08b}".format(int(rule)))
+        rule = str("{0:08b}".format(rule))
         for i in range(len(rule)):
             self.__rules[self.__neighbourhood[i]] = True if int(rule[i]) == 1 else False
 
@@ -100,8 +101,17 @@ def main():
     args = parser.parse_args()
 
     cellularAutomata = CellularAutomata()
+    match = re.search(r'0*1*', args.start_state)
+    if match:
+	print match.group
+    else:
+	"did not find"
     grid = cellularAutomata.buildGrid(args.start_state, int(args.width))
-    cellularAutomata.buildRules(args.rule)
+    if int(args.rule) > 0 and int(args.rule) < 255:
+    	cellularAutomata.buildRules(int(args.rule))
+    else:
+	print "Argument -r Rule should be an integer between 0 and 255" 
+	exit()
     grid = cellularAutomata.mutate(grid, int(args.steps))
 
     for row in range(len(grid)):
