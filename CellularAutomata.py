@@ -102,28 +102,30 @@ def main():
 
     cellularAutomata = CellularAutomata()
     if re.match(r'(0*1*)+$', args.start_state):
-	try:
-	    grid = cellularAutomata.buildGrid(args.start_state, int(args.width))
-	except ValueError:
-	    print "Argument -w Width must be an integer"
-	    exit()
+        try:
+            grid = cellularAutomata.buildGrid(args.start_state, int(args.width))
+        except ValueError:
+            print "Argument -w Width must be an integer"
+            exit()
     else:
-	print "Argument -c Start state must be a string of only ones and zeros"
-	exit()
+        print "Argument -c Start state must be a string of only ones and zeros"
+        exit()
+
     try:
         if int(args.rule) > 0 and int(args.rule) < 255:
-    	    cellularAutomata.buildRules(int(args.rule))
+            cellularAutomata.buildRules(int(args.rule))
         else:
-	    print "Argument -r Rule should be an integer between 0 and 255" 
-	    exit()
+            print "Argument -r Rule should be an integer between 0 and 255"
+            exit()
     except ValueError:
-	print "Argument -r Rule must an integer"
-	exit()
+        print "Argument -r Rule must an integer"
+        exit()
+
     try:
-	grid = cellularAutomata.mutate(grid, int(args.steps))
+        grid = cellularAutomata.mutate(grid, int(args.steps))
     except ValueError:
-	print "Argument -s Steps must be an integer"
-	exit()
+        print "Argument -s Steps must be an integer"
+        exit()
 
     for row in range(len(grid)):
         print ('%s' % ''.join(map(str, grid[row]))).replace('1', 'X').replace('0', ' ')
