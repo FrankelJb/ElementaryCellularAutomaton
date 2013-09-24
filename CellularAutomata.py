@@ -36,7 +36,7 @@ class CellularAutomata():
     #new rows dynamically as we mutate
     def buildGrid(self, start_state, width):
         if len(start_state) > width:
-            raise RuntimeError('Start state is too wide for this grid')
+            width = len(start_state)
 
         startPosition = -1
         while startPosition + len(start_state) > width / 2:
@@ -101,18 +101,29 @@ def main():
     args = parser.parse_args()
 
     cellularAutomata = CellularAutomata()
-    match = re.search(r'0*1*', args.start_state)
-    if match:
-	print match.group
+    if re.match(r'(0*1*)+$', args.start_state):
+	try:
+	    grid = cellularAutomata.buildGrid(args.start_state, int(args.width))
+	except ValueError:
+	    print "Argument -w Width must be an integer"
+	    exit()
     else:
-	"did not find"
-    grid = cellularAutomata.buildGrid(args.start_state, int(args.width))
-    if int(args.rule) > 0 and int(args.rule) < 255:
-    	cellularAutomata.buildRules(int(args.rule))
-    else:
-	print "Argument -r Rule should be an integer between 0 and 255" 
+	print "Argument -c Start state must be a string of only ones and zeros"
 	exit()
-    grid = cellularAutomata.mutate(grid, int(args.steps))
+    try:
+        if int(args.rule) > 0 and int(args.rule) < 255:
+    	    cellularAutomata.buildRules(int(args.rule))
+        else:
+	    print "Argument -r Rule should be an integer between 0 and 255" 
+	    exit()
+    except ValueError:
+	print "Argument -r Rule must an integer"
+	exit()
+    try:
+	grid = cellularAutomata.mutate(grid, int(args.steps))
+    except ValueError:
+	print "Argument -s Steps must be an integer"
+	exit()
 
     for row in range(len(grid)):
         print ('%s' % ''.join(map(str, grid[row]))).replace('1', 'X').replace('0', ' ')

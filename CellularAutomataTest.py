@@ -9,7 +9,10 @@ class TestCellularAutomata(unittest.TestCase):
     def test_buildgridpasses(self):
         cA = CellularAutomata()
         cA.buildGrid('10', 100)
-        self.assertRaises(RuntimeError, lambda: cA.buildGrid('101010110111111111111111111111111111111111' * 100, 100))
+        grid = cA.buildGrid('1' * 8, 9) #Width of the grid is greater than the length of the start state
+        self.assertEqual(len(grid[0]), 9)
+        grid = cA.buildGrid('1' * 10, 9) #Width of the grid is less than the length of the start state
+        self.assertEqual(len(grid[0]), 10)
 
     #It is quite difficult to assert correctness, so I have chosen to use a row high up, row 3, and
     #ensure that it contains a substring that it should. The string used
