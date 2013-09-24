@@ -10,7 +10,7 @@ This method of cellular mutation is performed by applying a set of rules that ar
 |--------------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |New Centre Cell | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 0 |
 
-To run the algorithm, from the root directory of the cloned repository, type `./CellularAutomaton -r #rule-number -s #number-of-steps -c #starting-cell-structure# -w #width-of-grid (optional)`. The arguments for the algorithm are 
+To run the algorithm, from the root directory of the cloned repository, type `./CellularAutomaton -r #rule-number# -s #number-of-steps# -c #starting-cell-structure# -w #width-of-grid# (optional)`. The arguments for the algorithm are 
 + -r: #rule-number is the integer of the rule used to define the value of the *New Centre Cell*
 + -s: #number-of-steps to simulate
 + -c: #starting-cell-structure as a string of 1s and 0s
