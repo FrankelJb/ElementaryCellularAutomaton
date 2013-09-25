@@ -17,7 +17,7 @@ class TestCellularAutomata(unittest.TestCase):
         grid = cA.buildGrid('11', 10)
         self.assertTrue('11' in '%s' % ''.join(map(str, grid[0])))
 
-    #It is quite difficult to assert correctness, so I have chosen to use a row high up, row 3, and
+    #I have chosen to use a row high up, row 3, and
     #ensure that it contains a substring that it should. The string used
     #was copied from http://www-inst.eecs.berkeley.edu/~selfpace/cs9honline/P1/
     def test_rowsarecorrect(self):
