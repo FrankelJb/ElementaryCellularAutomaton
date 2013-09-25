@@ -16,6 +16,8 @@ To run the algorithm, from the root directory of the cloned repository, type `./
 + -c: #starting-cell-structure as a string of 1s and 0s
 + -w: #width that is used when creating a graphical display of the mutation
 
+I suggest using a width at least as wide as the number of steps for aesthetic purposes.
+
 The output of this will be a grid of 'X's and ' 's printed to the standard output where the 'X's represent '1' and the ' 's represent '0'. There will also be a graphical display of the mutation.
 
 
