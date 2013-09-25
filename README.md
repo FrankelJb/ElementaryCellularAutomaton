@@ -25,7 +25,7 @@ To install pygame
 + Linux
   - Type: `sudo apt-get install python-pygame`
 + Windows:
-  - Visit http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi and download the installer
+  - Visit http://pygame.org/ftp/ and download the installer for the version of python that you have
 + Mac OS
   - Visit http://pygame.org/ftp/ and download the tar.gz or zip of the version of python that you have and run it
 
